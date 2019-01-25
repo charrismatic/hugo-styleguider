@@ -1,0 +1,111 @@
+<style>
+#hugo-debug {
+  padding: 0em;
+  width: auto;
+  margin:1em 4%;
+}
+#hugo-debug .debug-code-block {
+  border-top: 1px solid #ddd;
+  margin-top: 0;
+  max-height: 800px;
+  max-width: 1200px;
+  padding: 0em;
+  overflow: auto;
+  position: relative;
+  white-space: pre-wrap;
+  width: auto;
+  word-break: break-word;
+}
+#hugo-debug .debug-code-block code {
+  padding: 1em;
+}
+#hugo-debug ::-webkit-scrollbar {
+  width: .8em;
+  background-color: rgb(255, 2, 208);
+}
+#hugo-debug ::-webkit-scrollbar-track {
+    background-color: rgb(238, 95, 74);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+#hugo-debug ::-webkit-scrollbar-button {}
+#hugo-debug ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+#hugo-debug ::-webkit-scrollbar-thumb { background-color: rgb(255, 92, 76); }
+#hugo-debug ::-webkit-scrollbar-track { background-color: rgb(255, 207, 208); }
+#hugo-debug ::-webkit-scrollbar-track-piece  { background-color: rgba(80, 56, 56, 0.5); }
+/* ::-webkit-scrollbar-corner {} */
+/* ::-webkit-resizer {} */
+</style>
+<div id="hugo-debug">
+  <h2>Hugo Debug</></h2>
+  <h3>\{ $ \}</h3>
+
+  <pre class="debug-code-block">
+    <code>{{ $ | jsonify }}</code>
+  </pre>
+
+  <h3>{ . \}</h3>
+  <pre class="debug-code-block" >
+    <code>{{ . | jsonify }}</code>
+  </pre>
+</div>
+<script>
+var format_json_from_string = ( json_txt_data ) => {
+  return JSON.stringify(
+    JSON.parse(json_txt_data),
+    [
+      "Kind", "home", "Pages", "page", "Pages",
+      "Resources", "TableOfContents", "Aliases", "Images",
+      "Videos", "Draft", "Status", "Weight", "Markup", "GitInfo",
+      "Layout", "Frontmatter", "Content", "File", "ReadableFile",
+      "Description", "Keywords", "Date", "Lastmod", "PublishDate",
+      "ExpiryDate", "Sitemap", "ChangeFreq", "Priority", "Filename"
+    ], 2)
+}
+
+
+var render_clean_json = ( formatted_json ) => {
+  var open_val = '<span class="hljs-value">';
+  var open_atr = '<span class="hljs-attribute">';
+  var close_atr = '</span>';
+  var close_val = close_atr;
+  var rm_quotes = /['"]+/g;
+  var result = [];
+  var clean_line;
+
+  formatted_json.split("\n").forEach( function(line) {
+    if (line.split(":")[1]) {
+      clean_line = [
+        open_atr + line.split(": ")[0].replace(rm_quotes,'') + close_atr,
+        open_val + line.split(": ")[1].trim() + close_atr
+      ].join(": ");
+      result.push(clean_line);
+      return;
+    }
+  });
+  console.log('result')
+  return result;
+}
+
+var update_code_highlighting = (hloptions) => {
+  if(hloptions) {
+    hljs.configure(hl_options);
+  }
+  hljs.initHighlighting.called = false;
+  hljs.initHighlighting();
+}
+
+// var format_hugo_debug_data = (() = {
+codeblocks = document.querySelectorAll('#hugo-debug .debug-code-block code');
+for (codeblock of codeblocks) {
+    var json_data = format_json_from_string( codeblock.innerText )
+    if ( json_data ) {
+      var clean_json = render_clean_json( json_data );
+      codeblock.innerHTML = clean_json.join("\n");
+      console.log(clean_json);
+    }
+}
+
+// })();
+</script>

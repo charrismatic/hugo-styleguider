@@ -1,0 +1,8 @@
+{{ $options := (dict "targetPath" "styles.css" "outputStyle" "expanded" "enableSourceMap" true ) }}
+{{ $style := resources.Get "styles/styles.scss" | resources.ToCSS $options | resources.Minify  }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.css" integrity="sha256-l0tJvh77claYa8GowKaFNxtuRWZICtwHTk7+0tgsiZY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="assets/css/paper.css" />
+<!-- Set page size here: A5, A4 or A3 -->
+<!-- Set also "landscape" if you need -->
+<style>@page { size: legal landscape }</style>

@@ -1,0 +1,61 @@
+{{ $sassTemplate := resources.Get "styles/template.scss" }}
+{{ $targetTemplate := $.theme_stylesheet }}
+{{ $style := $sassTemplate | resources.ExecuteAsTemplate $targetTemplate . | resources.ToCSS }}
+<div id="{{ $.theme_name }}" class="section theme-main {{ $.theme_name }}" data-stylesheet="{{ $.theme_stylesheet }}" >
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ range .theme_variants }}
+ <section class="sheet slide features theme-{{ . }}">
+  <div class="wrapper flex flex-around">
+    <div class="template-title">{{ $.title }} | {{ . }}</div>
+    <div class="logo-container">
+      <i class='logo scaled {{ . }}'></i>
+    </div>
+    <div class="divider-horiz"></div>
+    <div class="colors-box flex-item flex flex-col margin-l0">
+      <h2 class="col__title">COLORS</h2>
+      <div class="flex flex-grow flex-col flex-center">
+        <div class="">
+          <div class="swatch theme-color-light">#{{ $.color_light_hex }} <span class="swatch__divider">|</span> {{ $.color_light }}</div>
+          <div class="swatch theme-color-base">#{{ $.color_base_hex }} <span class="swatch__divider">|</span> {{ $.color_base }}</div>
+          <div class="swatch theme-color-dark">#{{ $.color_dark_hex }} <span class="swatch__divider">|</span> {{ $.color_dark }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="typeset-box fonts flex flex-col">
+      <h2 class="col__title">FONTS</h2>
+      <div class="flex flex-col flex-center flex-grow">
+        <div class="flex font-body">
+          <div class="flex-item">
+            <p class="font-light">{{ $.font_body_name }} Light</p>
+            <p class="font-regular">{{ $.font_body_name }} Regular</p>
+            <p class="font-semibold">{{ $.font_body_name }} Semibold</p>
+            <p class="font-bold">{{ $.font_body_name }} Bold</p>
+            <p class="font-heavy">{{ $.font_body_name }} Heavy</p>
+          </div>
+          <div class="flex-item">
+            <p class="font-light font-italic">{{ $.font_body_name }} Light Italic</p>
+            <p class="font-regular font-italic">{{ $.font_body_name }} Regular Italic</p>
+            <p class="font-semibold font-italic">{{ $.font_body_name }} Semibold Italic</p>
+            <p class="font-bold font-italic">{{ $.font_body_name }} Bold Italic</p>
+            <p class="font-heavy font-italic">{{ $.font_body_name }} Heavy Italic</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="typeset-box align-right flex flex-col pad-l1">
+      <h2 class="col__title">HEADERS</h2>
+      <div class="flex flex-col flex-grow flex-center">
+        <div class="headers flex-item">
+          <h1 class="h1 heading">{{ $.font_heading_name }} H1</h1>
+          <h2 class="h2 heading">{{ $.font_heading_name }} H2</h2>
+          <h3 class="h3 heading">{{ $.font_heading_name }} H3</h3>
+          <h4 class="h4 heading">{{ $.font_heading_name }} H4</h4>
+          <h5 class="h5 heading">{{ $.font_heading_name }} H5</h5>
+          <h6 class="h6 heading">{{ $.font_heading_name }} H6</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+{{ end }}
+</div>

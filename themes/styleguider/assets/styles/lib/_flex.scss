@@ -1,0 +1,22 @@
+.flex {
+  display: flex;
+
+  &-row { flex-direction: row; }
+  &-col { flex-direction: column; }
+  &-start { justify-content: flex-start; }
+  &-end { justify-content: flex-end; }
+  &-center { justify-content: center; }
+  &-even { justify-content: space-between; }
+  &-around { justify-content: space-around; }
+  &-grow { flex-grow: 1; }
+  &-shrink { flex-shrink: 1; }
+  &-basis-none { flex-basis: 0; }
+  &-basis-max { flex-basis: 100%; }
+}
+
+.flex-item {
+  flex: 0 1 auto;
+  margin: 0 1em;
+  &:first-child { margin-left: 0; }
+  &:last-child { margin-right: 0; }
+}

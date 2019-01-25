@@ -1,0 +1,97 @@
+# HUGO
+# SERVER DATA
+baseURL = "http://localhost:1313/"
+workingdir = "/data/projects/Go_Projects/projects/styleguide-tool"
+cachedir = "tmp/hugo_cache/"
+cleandestinationdir = true
+verbose = false
+watch = true
+debug = false
+metadataformat = "toml"
+assetdir = "assets"
+contentdir = "content"
+datadir = "data"
+publishdir = "public"
+resourcedir = "resources"
+themesdir = "themes"
+
+# SITE DATA
+# source = "source"
+title = "Styleguide Tool"
+languageCode = "en-us"
+# theme = "reveal-paper"
+theme = "styleguider"
+archetypedir = "archetypes"
+builddrafts = false
+buildexpired = false
+buildfuture = false
+canonifyurls = false
+sectionpagesmenu = ""
+staticdir = "static"
+summarylength = 70
+timeout = 10000
+titlecasestyle = "AP"
+uglyurls = false
+usemodtimeasfallback = false
+
+[Params]
+logo = "logo.svg"
+debug_theme = false
+
+[Params.BrandColor]
+normal = "#343477"
+light = "#565695"
+dark = "#1A1A59"
+shadow = "#09093B"
+
+
+#
+# [submodule "themes/sawmill"]
+# path = "themes/sawmill"
+# url = "https://github.com/dwalkr/sawmill.git"
+# [submodule "themes/hyde"]
+# path = "themes/hyde"
+# url = "https://github.com/spf13/hyde.git"
+#blackfriday = &{Smartypants:true SmartypantsQuotesNBSP:false AngledQuotes:false Fractions:true HrefTargetBlank:false NofollowLinks:false NoreferrerLinks:false SmartDashes:true LatexDashes:true TaskLists:true PlainIDAnchors:true Extensions:[] ExtensionsMask:[]}
+#cachedir = "/tmp/hugo_cache/"
+# defaultcontentlanguage = "en"
+# defaultcontentlanguageinsubdir = false
+# disablealiases = false
+# disablefastrender = false
+# disablelivereload = false
+# disablepathtolower = false
+# enableemoji = false
+# enablegitinfo = false
+# footnoteanchorprefix = ""
+# enablemissingtranslationplaceholders = false
+# footnotereturnlinkcontents = ""
+# forcesyncstatic = false
+# hascjklanguage = false
+# i18ndir = "i18n"
+# ignorecache = false
+# ignorefiles = []
+# indexes = map[category:categories tag:tags]
+# languagecode = "en-us"
+# languagessorted = [en]
+# layoutdir = "layouts"
+# metadataformat = "toml"
+# multilingual = false
+# newcontenteditor = ""
+# paginate = 10
+# paginatepath = "page"
+# permalinks = map[]
+# pluralizelisttitles = true
+# preservetaxonomynames = false
+# pygmentscodefences = false
+# pygmentscodefencefunninsguesssyntax	__  = false
+# pygmentsoptions = ""
+# pygmentsstyle = "monokai"
+# pygmentsuseclasses = false
+# pygmentsuseclassic = false
+# relativeurls = false
+# taxonomies = map[tag:tags category:categories]
+# removepathaccents = false
+# rsslimit = -1
+# rssuri = "index.xml"
+# sitemap = {ChangeFreq: Priority:-1 Filename:sitemap.xml}
+# workingdir = "/data/projects/Go_Projects/projects/styleguide-tool"
