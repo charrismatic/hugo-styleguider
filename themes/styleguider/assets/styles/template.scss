@@ -1,8 +1,8 @@
 @import 'lib/colors';
 
-$theme_name: {{ .theme_name }};
 // $font_heading_name: {{ .font_heading }};
 // $font_body_name: {{ .font_body }};
+$theme_name: {{ .theme_name }};
 $theme_mid: {{ .color_base }};
 $theme_mid_hex: '{{ .color_base_hex }}';
 $theme_lgt: {{ .color_light }};
@@ -11,9 +11,10 @@ $theme_drk: {{ .color_dark }};
 $theme_drk_hex: '{{ .color_dark_hex }}';
 
 @import url('https://fonts.googleapis.com/css?family={{ .font_body }}:300,300i,400,400i,600,600i,700,700i,800,800i');
-@import url('https://fonts.googleapis.com/css?family={{ .font_heading }}:300,300i,400,400i,600,600i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family={{ .font_heading }}:100,200,300,300i,400,400i,600,600i,700,700i,800,800i');
 
-$svg_path: '{{ .logo_path }}';
+// $svg_path: '{{ .logo_path }}';
+$svg_icon:  '{{ .logo_svg }}';
 
 /* SECTION TEMPLATES */
 {{ .theme_id }} {
@@ -45,64 +46,65 @@ $svg_path: '{{ .logo_path }}';
     .theme-color-light { background: $theme_lgt; }
     .theme-color-base  { background: $theme_mid; }
     .theme-color-dark  { background: $theme_drk; }
+    .theme-color-accent  { background: {{ $.color_accent }}; }
 
+    i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
     &.theme-light { background: $white; color: $black;
       &.swatch { color: inherit; }
-      $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="#{$black}" stroke="" stroke-width=""></path></svg>';
-      i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
+      // $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="#{$black}" stroke="" stroke-width=""></path></svg>';
     }
 
     &.theme-light-color { background: $white; color: $theme_drk;
-      $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="{{ .color_dark }}" stroke="" stroke-width=""></path></svg>';
-      i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
+      // $svg_icon:  '{{ .logo_svg }}';
+      // i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
       .theme-color-light.swatch { color: $theme_drk;}
       .theme-color-base.swatch { color: $theme_drk;}
       .theme-color-dark.swatch { color: $theme_lgt;}
     }
 
     &.theme-dark { background: $black; color: $white;
-      $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="#{$white}" stroke="" stroke-width=""></path></svg>';
-      i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
+      // $svg_icon:  '{{ .logo_svg }}';
+      // i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
       &.swatch { color: inherit; }
     }
 
     &.theme-dark-color { background: $black; color: $theme_lgt;
-      $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="{{ .color_light }}" stroke="" stroke-width=""></path></svg>';
-      i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
+      // $svg_icon:  '{{ .logo_svg }}';
+      // i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
       .theme-color-light.swatch { color: $theme_drk;}
       .theme-color-base.swatch { color: $theme_drk;}
       .theme-color-dark.swatch { color: $theme_lgt;}
     }
 
     &.theme-color-white { background: $theme_drk; color: $white;
-      $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="#{$white}" stroke="" stroke-width=""></path></svg>';
-      i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
+      // $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="#{$white}" stroke="" stroke-width=""></path></svg>';
+      // i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
       &.swatch { color: inherit; }
     }
     &.theme-color-black { background: $theme_drk; color: $black;
-      $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="#{$black}" stroke="" stroke-width=""></path></svg>';
-      i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
+      // $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="#{$black}" stroke="" stroke-width=""></path></svg>';
+      // i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
       &.swatch { color: inherit; }
     }
 
     &.theme-color { background: $theme_mid; color: $theme_lgt;
-      $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="{{ .color_light }}" stroke="" stroke-width=""></path></svg>';
-      i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
+      // $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="{{ .color_light }}" stroke="" stroke-width=""></path></svg>';
+      // i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
       .theme-color-light.swatch { color: $theme_drk;}
       .theme-color-base.swatch { color: $theme_drk;}
       .theme-color-dark.swatch { color: $theme_lgt;}
     }
 
     &.theme-color-darker { background: $theme_drk; color: $theme_lgt;
-      $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="{{ .color_light }}" stroke="" stroke-width=""></path></svg>';
-      i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
+      // $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="{{ .color_light }}" stroke="" stroke-width=""></path></svg>';
+      // i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
       .theme-color-light.swatch { color: $theme_drk;}
       .theme-color-base.swatch { color: $theme_drk;}
       .theme-color-dark.swatch { color: $theme_lgt;}
     }
     &.theme-color-lighter { background: $theme_lgt; color: $theme_drk;
-      $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="{{ .color_dark }}" stroke="" stroke-width=""></path></svg>';
-      i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
+      // $svg_icon:  '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="" height="" viewBox="0 0 200 100" enable-background="new 0.5 190.5 611.6 411" xml:space="preserve" class="svg logo"><defs></defs><path d="#{$svg_path}" fill="{{ .color_dark }}" stroke="" stroke-width=""></path></svg>';
+      // i.logo { background-image: url('data:image/svg+xml;utf8,#{$svg_icon}'); }
       .theme-color-light.swatch { color: $theme_drk;}
       .theme-color-base.swatch { color: $theme_drk;}
       .theme-color-dark.swatch { color: $theme_lgt;}
