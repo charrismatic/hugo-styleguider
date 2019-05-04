@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-  {{ partial "head.html" . }}
-  <body class="legal landscape">
-    <div id="menu"></div>
-    <div id="fullpage">
-        {{ range $.Site.Data.styleguide }}
-          {{ partial "sections.html" . }}
-        {{ end }}
-    {{ partial "footer.html" . }}
+{{ partial "head.html" . }}
+<body class="legal landscape">
+  <div id="menu"></div>
+  <div id="fullpage">
+    {{ range $.Site.Data.styleguide }}{{ partial "sections.html" . }}{{ end }}
   </div>
-  </body>
+  {{ partial "footer.html" . }}
+</body>
 </html>

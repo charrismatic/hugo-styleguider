@@ -1,0 +1,15 @@
+resources/
+resources/_gen
+public/404.html
+public/assets
+public/categories
+public/coze-theme.css
+public/css
+public/index.html
+public/index.xml
+public/lib
+public/logo.svg
+public/page
+public/sitemap.xml
+public/tags
+*.pdf

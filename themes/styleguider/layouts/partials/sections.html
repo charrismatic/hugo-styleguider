@@ -1,8 +1,11 @@
-{{ $sassTemplate := resources.Get "styles/template.scss" }}
+{{ $sassTemplate := resources.Get "css/template.scss" }}
 {{ $targetTemplate := $.theme_stylesheet }}
-{{ $style := $sassTemplate | resources.ExecuteAsTemplate $targetTemplate . | resources.ToCSS }}
-<div id="{{ $.theme_name }}" class="section theme-main {{ $.theme_name }}" data-stylesheet="{{ $.theme_stylesheet }}" >
+{{ $processedTemplate := $sassTemplate | resources.ExecuteAsTemplate $targetTemplate . }}
+{{ $style :=  $processedTemplate | resources.ToCSS  }}
+
 <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+<div id="{{ $.theme_name }}" class="section theme-main {{ $.theme_name }}" data-stylesheet="{{ $.theme_stylesheet }}" >
 {{ range .theme_variants }}
  <section class="sheet slide features theme-{{ . }}">
   <div class="wrapper flex flex-around">

@@ -1,12 +1,10 @@
 # HUGO
 # SERVER DATA
-baseURL = "http://localhost:1313/"
-workingdir = "/data/projects/Go_Projects/projects/styleguide-tool"
-cachedir = "tmp/hugo_cache/"
-cleandestinationdir = true
-verbose = false
-watch = true
-debug = false
+# SITE DATA
+# source = "source"
+title = "Styleguide Tool"
+languageCode = "en-us"
+archetypedir = "archetypes"
 metadataformat = "toml"
 assetdir = "assets"
 contentdir = "content"
@@ -14,29 +12,37 @@ datadir = "data"
 publishdir = "public"
 resourcedir = "resources"
 themesdir = "themes"
-
-# SITE DATA
-# source = "source"
-title = "Styleguide Tool"
-languageCode = "en-us"
-# theme = "reveal-paper"
 theme = "styleguider"
-archetypedir = "archetypes"
+staticdir = "static"
+# theme = "reveal-paper"
+baseURL = "http://localhost:1313"
+# workingdir = "/data/projects/Go_Projects/projects/styleguide-tool"
+# cachedir = "tmp/hugo_cache/"
+
+disablefastrender = false
+disableLiveReload = false
+disablepathtolower = false
+
+watch = true
+debug = false
+verbose = false
 builddrafts = false
 buildexpired = false
 buildfuture = false
 canonifyurls = false
+cleandestinationdir = true
 sectionpagesmenu = ""
-staticdir = "static"
 summarylength = 70
 timeout = 10000
 titlecasestyle = "AP"
 uglyurls = false
 usemodtimeasfallback = false
+forceSyncStatic = true
 
 [Params]
 logo = "logo.svg"
 debug_theme = false
+pdf_style = false
 
 [Params.BrandColor]
 normal = "#343477"
@@ -45,7 +51,9 @@ dark = "#1A1A59"
 shadow = "#09093B"
 
 
-#
+
+
+
 # [submodule "themes/sawmill"]
 # path = "themes/sawmill"
 # url = "https://github.com/dwalkr/sawmill.git"
@@ -56,16 +64,12 @@ shadow = "#09093B"
 #cachedir = "/tmp/hugo_cache/"
 # defaultcontentlanguage = "en"
 # defaultcontentlanguageinsubdir = false
-# disablealiases = false
-# disablefastrender = false
-# disablelivereload = false
-# disablepathtolower = false
+# ealiases = false
 # enableemoji = false
 # enablegitinfo = false
 # footnoteanchorprefix = ""
 # enablemissingtranslationplaceholders = false
 # footnotereturnlinkcontents = ""
-# forcesyncstatic = false
 # hascjklanguage = false
 # i18ndir = "i18n"
 # ignorecache = false
